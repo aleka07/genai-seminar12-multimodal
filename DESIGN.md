@@ -87,7 +87,7 @@ Stage 1280 × 720, margins 64 left and right.
 - Figure: the state's one number. A strip beat (the last beat of states 2 to 5) has no body; it has `figure: { value: '75', unit: 'кадров кодека в секунду' }`, the number large on the strip and the unit beside it, at most five words. The source line appears only on the beat that shows the number.
 - Labels: italic, next to what they name, no leader lines, no boxes. Position is the top-left corner of the text; with `align: 'right'` x is the right edge, with `align: 'center'` the centre. Keep them 16 px or more away from dots.
 - Bottom line, left: the honesty label first (`tag: 'live'` gives «считается в браузере», `tag: 'schema'` gives «схема»), then the source line(s) with `data-v`.
-- Counter, bottom right: a dot per beat (large = reached), `n/14`, the speaker letter in an ink dot. Keep dots out of x > 1080, y > 650 and out of the bottom-left line.
+- Counter, bottom right: a dot per beat (large = reached), `n/14`. No speaker names or letters on screen. Keep dots out of x > 1080, y > 650 and out of the bottom-left line.
 - At most one control, built into `control`; style comes from the engine (text buttons, the chosen one ink-filled).
 
 ## Lightness rules, as numbers

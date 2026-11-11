@@ -125,14 +125,14 @@
       }
     },
 
-    // The corner counter: speaker letter in a dot, state number, one small dot per beat.
+    // The corner counter: state number and one small dot per beat. No speaker mark for now:
+    // Deck.speakerOf(n) still knows who holds the state when the names come back.
     counter(n, beat, beats) {
-      const who = Deck.speakerOf(n);
       let pips = '';
       if (beats > 1) for (let i = 0; i < beats; i++) pips += `<i class="${i <= beat ? 'on' : ''}"></i>`;
       counter.innerHTML =
         `<span class="mute">без звука</span><span class="pips">${pips}</span>` +
-        `<span class="num">${n}/${Deck.TOTAL}</span><span class="who" title="${esc(who.name)}">${who.letter}</span>`;
+        `<span class="num">${n}/${Deck.TOTAL}</span>`;
       counter.classList.toggle('muted', Deck.muted && !Deck.still);
     },
   });

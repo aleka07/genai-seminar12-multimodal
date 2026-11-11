@@ -67,7 +67,7 @@
   function caption() {
     return {
       headline: 'Мультимодальные генеративные системы',
-      body: `Семинар 12 · КазНУ · 2026\n${Deck.SPEAKERS['А']}, ${Deck.SPEAKERS['Б']}`,
+      body: 'Семинар 12 · КазНУ · 2026',
     };
   }
 })();
