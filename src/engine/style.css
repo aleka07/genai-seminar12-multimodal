@@ -1,0 +1,45 @@
+/* Seminar 12 deck. Two inks on paper: no grey, no opacity, no borders. See DESIGN.md. */
+:root {
+  --paper: #F1F0EC;
+  --ink: #17161B;
+  --accent: #E4007C;
+  --text: 'Literata', Georgia, 'Times New Roman', serif;
+  --mono: 'PT Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--paper); color: var(--ink); overflow: hidden; }
+body { display: grid; place-items: center; font-family: var(--text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+#stage { position: relative; cursor: default; user-select: none; -webkit-user-select: none; }
+#dots { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#captions { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; transform-origin: 0 0; pointer-events: none; }
+
+[data-role] { position: absolute; margin: 0; font-kerning: normal; font-variant-numeric: lining-nums; }
+[data-role='headline'] { left: 64px; top: 42px; max-width: 800px; font-weight: 600; font-size: 56px; line-height: 1.06; letter-spacing: -0.012em; text-wrap: balance; }
+[data-role='body'] { left: 64px; max-width: 560px; font-weight: 400; font-size: 26px; line-height: 1.36; }
+[data-role='label'] { font-style: italic; font-weight: 400; font-size: 24px; line-height: 1.25; white-space: nowrap; }
+[data-role='label'].upright { font-style: normal; }
+[data-role='label'][style*='width'] { white-space: normal; }
+/* the figure: the one number of a state, large, sitting on the token strip; its unit shares the baseline */
+[data-role='label'].figure { left: 64px; display: flex; align-items: baseline; gap: 26px; font-style: normal; font-size: 34px; line-height: 1; white-space: nowrap; }
+[data-role='label'].figure b { font-weight: 600; font-size: 184px; line-height: 0.74; letter-spacing: -0.035em; }
+[data-role='control'] { pointer-events: auto; font-size: 22px; line-height: 1.2; }
+.mono { font-family: var(--mono); font-style: normal; letter-spacing: -0.01em; }
+.arr { display: inline-block; width: 0.82em; height: 0.55em; margin: 0 0.06em; vertical-align: 0.06em; overflow: visible; }
+
+/* the bottom line: honesty label and sources on the left, the counter on the right */
+#foot { position: absolute; left: 64px; bottom: 26px; display: flex; align-items: baseline; gap: 22px; max-width: 920px; }
+#foot [data-role] { position: static; }
+#foot .tag { font-size: 22px; }
+[data-role='src'] { font-size: 15px; line-height: 1.3; font-weight: 400; }
+[data-role='counter'] { right: 64px; bottom: 24px; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 15px; line-height: 1; }
+[data-role='counter'] .who { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); font-family: var(--text); font-weight: 600; font-size: 16px; }
+[data-role='counter'] .pips { display: flex; align-items: center; gap: 5px; }
+[data-role='counter'] .pips i { width: 4px; height: 4px; border-radius: 50%; background: var(--ink); }
+[data-role='counter'] .pips i.on { width: 9px; height: 9px; }
+[data-role='counter'] .mute { display: none; font-family: var(--text); font-style: italic; }
+[data-role='counter'].muted .mute { display: inline; }
+
+/* one control style for every state: words on ink, the chosen one in the accent's place is ink-filled */
+[data-role='control'] button { font: inherit; color: var(--ink); background: none; border: 0; padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+[data-role='control'] button[aria-pressed='true'], [data-role='control'] button.on { background: var(--ink); color: var(--paper); }
+[data-role='control'] button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
